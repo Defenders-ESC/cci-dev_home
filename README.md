@@ -1,4 +1,4 @@
-# Homepage for [](https://cci-dev.org)
+# Homepage for [https://cci-dev.org](https://cci-dev.org)
 
 Everything needed to make the CCI-dev homepage work.
 
