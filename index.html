@@ -1,0 +1,949 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Defenders CCI Development Pages</title>
+    <link rel="icon" href="www/favicon-32x32.png"/>
+    <link rel="stylesheet" href="www/font-awesome-4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="www/jquery-2.2.4.min.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-87763357-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+    <script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "WebSite",
+    "name": "Defenders of Wildlife Center for Conservation Innovation Development Site",
+    "dateCreated": "2017-01-17",
+    "creator": {
+      "name": "Defenders of Wildlife Center for Conservation Innovation"
+    },
+    "about": "Research and development for improving wildlife conservation",
+    "url": "https://defend-esc-dev.org"
+  }
+    </script>
+    <script>
+      var shiftWindow = function() { scrollBy(0, -50) };
+      window.addEventListener("hashchange", shiftWindow);
+      function load() { if (window.location.hash) shiftWindow(); }
+    </script>
+    <script>
+      function myToggle(divname, bname) {
+          var x = document.getElementById(divname);
+          var y = document.getElementById(bname);
+          if (x.style.display === 'none') {
+              x.style.display = 'block';
+              y.innerHTML = '<i class="fa fa-chevron-circle-up fa-lg" aria-hidden="true"></i>';
+          } else {
+              x.style.display = 'none';
+              y.innerHTML = '<i class="fa fa-chevron-down" aria-hidden="true"></i>';
+          }
+      }
+    </script>
+    <script type="text/javascript" src="www/bootstrap/js/bootstrap.min.js"></script>
+    <link href="www/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <script type="text/javascript" src="www/bootstrap/js/bootstrap.js"></script>
+    <link href="www/cci_boot.css" rel="stylesheet"/>
+  </head>
+  <body onload="load()">
+    <div class="modal fade help_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Basic Help</h4>
+          </div>
+          <div class="modal-body">This is a pretty simple page. <br> Links in the navigation bar lead to other parts of the site, some of which are secure. The boxes below are linked to a variety of web applications and working papers.</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade contact_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Contact Us</h4>
+          </div>
+          <div class="modal-body">Have a question? Drop us a note at <a href="mailto:esa@defenders.org">esa@defenders.org</a>.</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade us_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">About Us</h4>
+          </div>
+          <div class="modal-body"><p>The goal of the Center for Conservation Innovation is to find innovative ways to improve biological conservation. Finding, analyzing, and making available data on ESA-listed species - and species not-yet listed - is one way we are working towards that goal.</p><p>This site is our web application development testbed. Feel free to explore the content in this site and give us feedback.</p><div style="font-weight: bold; font-size: smaller">Nothing on this site should be construed as representing the positions of <a href="http://defenders.org", target="_blank">Defenders of Wildlife</a>; content here is a work in progress that may be subject to change.</div></div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" tabindex="-1" href="#">CCI-dev</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+          <ul class="nav navbar-nav">
+            <li>
+              <a style="font-weight: 400; font-size: larger" href="http://www.defenders.org" tabindex="-1" target="_blank">Defenders of Wildlife</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="https://github.com/Defenders-ESC" tabindex="-1" target="_blank"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" tabindex="-1" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-share-alt fa-2x" aria-hidden="true"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="https://twitter.com/share?text=Defenders%20of%20Wildlife CCI Development Site&url=https://cci-dev.org">
+                    <span><i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                    Twitter</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/sharer/sharer.php?s=100&p[url]=https://cci-dev.org">
+                    <span><i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+                    Facebook</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://pinterest.com/pin/create/link/?url=https://cci-dev.org&description=Defenders%20of%20Wildlife%20CCI%20Development%20Site">
+                    <span><i class="fa fa-pinterest fa-2x" aria-hidden="true"></i>
+                    Pinterest</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" tabindex="-1" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-question-circle fa-2x" aria-hidden="true"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#" data-toggle="modal" data-target=".us_modal">About Us</a>
+                </li>
+                <li>
+                  <a href="#" data-toggle="modal" data-target=".help_modal">Help</a>
+                </li>
+                <li>
+                  <a href="#" data-toggle="modal" data-target=".contact_modal">Contact</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="home"></div>
+    <br/>
+    <br/>
+      <div class="col-md-2">
+        <div class="my-affix" id="navigator">
+          <ul class="nav nav-pills nav-stacked">
+            <li class="primary"><a href="#web_apps">Web Apps</a></li>
+            <li class="success"><a href="#analyses">Analyses</a></li>
+            <li class="info"><a href="#working_papers">Working Papers</a></li>
+            <li class="warning"><a href="#microapps">Microapps</a></li>
+            <li class="danger"><a href="#annotations">Annotations</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="cci-top">
+              <h1>Center for Conservation Innovation
+                <br/>
+                <div class="subtitle">
+                  <div style="padding-top: 15px">Development Site</div>
+                </div>
+              </h1>
+              <p>Web apps, analyses, working papers, and related tools</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+        <div id="web_apps">
+          <div class="col-md-12">
+            <div class="plain-panel">
+              <div class="panel-body">
+                <h4>Web Apps</h4>
+                <p>A selection of our web apps. Those labeled <span class="label label-danger">Restricted</span> are under active research and development; see <i class="fa fa-question-circle" aria-hidden="true"></i> &rarr; Contact Us to inquire about access.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading"><a href="https://cci-dev.org/shiny/open/section7_explorer/" target="_blank">Section 7 Explorer</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">FWS consultation data</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('s7exp', 'cd1')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff"  id="cd1">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="s7exp" style="display: none">
+                    <p class="more-info">Section 7 of the U.S. Endangered Species Act is often considered the strongest section of the Act. Explore data on all section 7 consultations performed by the U.S. Fish and Wildlife Service since 2008.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading"><a href="https://cci-dev.org/dynamic-recovery/index.html" target="_blank">Dynamic Recovery</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">Web-based recovery plans</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('dynrec', 'cd2')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="cd2">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="dynrec" style="display:none">
+                    <p class='more-info'>Recovery plans set the criteria for ESA-listed species to be considered recovered and detail the actions needed to achieve those criteria. Traditional recovery plans are written on paper, and most are out-of-date. These are models of how recovery plans could be modernized.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-primary" data-toggle="tooltip" data-placement="top" title="Restricted">
+              <div class="panel-heading">
+                <a href="https://esadocs.cci-dev.org" target="_blank">ESAdocs Search</a>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">Full-text search engine</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('esadoc', 'cd3')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="cd3">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="esadoc" style="display:none">
+                    <p class='more-info'>Full-text search engine for ESA documents. Includes all Federal Register notices, recovery plans, and 5-year reviews, and a variety of section 7 consultations, HCPs, and other ESA-related documents.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading"><a href="https://cci-dev.org/shiny/open/listings-summary/" target="_blank">ESA Listings Summary</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">Overview of ESA listings</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('esaover', 'cd4')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="cd4">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="esaover" style="display:none">
+                    <p class='more-info'>The U.S. Fish and Wildlife Service provides a table of Endangered Species Act-listed species from their <a href="http://ecos.fws.gov" target="_blank">ECOS portal</a>. Explore the same data using graphs and maps to learn more about ESA-listed species.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-primary" data-toggle="tooltip" data-placement="top" title="Restricted">
+              <div class="panel-heading">
+                <a href="https://cci-dev.org/shiny/closed/ESA_expenditures_v0-3/" target="_blank">ESA Expenditures</a>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">How much money, where?</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('expend', 'cd5')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="cd5">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="expend" style="display:none">
+                    <p class='more-info'>Conservation takes resources. The U.S. Fish and Wildlife Service annually reports expenditures on ESA-listed species. Explore reported expenditure data from 2008-2013 in maps, graphs, and tables.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-primary" data-toggle="tooltip" data-placement="top" title="Restricted">
+              <div class="panel-heading">
+                <a href="https://cci-dev.org/shiny/closed/WLFW_v0-2/" target="_blank">Working Lands for Wildlife</a>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">NRCS wildlife program</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('wlfw', 'cd6')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="cd6">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="wlfw" style="display:none">
+                    <p class='more-info'>The Natural Resources Conservation Service administers the Working Lands for Wildlife program to provide funding and assistance to private landowners whose land management can help species that are ESA-listed or candidates for listing. Explore WLFW data here!</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading"><a href="https://cci-dev.org/shiny/open/at-risk_species_v0-1/" target="_blank">At-risk Species Explorer</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead" style="font-size:0.95em">Petitioned/candidate species</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('atrisk', 'cd7')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="cd7">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="atrisk" style="display:none">
+                    <p class='more-info'>A significant number of species are proposed for ESA listing or are candidates. Explore basic information about these imperiled species. <em>This is an early prototype; please <a href="mailto:esa@defenders.org">contact us</a> if you would like to help develop.</em></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-primary" data-toggle="tooltip" data-placement="top" title="Restricted">
+              <div class="panel-heading">
+                <a href="https://cci-dev.org/shiny/closed/EndSp_images_dash/" target="_blank">Endangered Species Images</a>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">Image collection tool</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('esimage', 'cd8')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="cd8">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="esimage" style="display:none">
+                    <p class='more-info'>Having pictures of ESA-listed species should help improve our ability communicate about their conservation. This will be an app to crowd-source image curation.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading"><a href="https://cci-dev.org/shiny/open/recovery_actions/" target="_blank">Recovery Actions</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">Actions to recover species</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('recact', 'cd9')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="cd9">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="recact" style="display:none">
+                    <p class='more-info'>Recovery plans detail the actions needed to improve a species' status to the point that the protections of the Endangered Species Act are no longer needed. Graphically explore &gt;30,000 actions for 1,178 species from the <a href="http://ecos.fws.gov/tess_public/ore-input/ad-hoc-recovery-actions-public-report-input" target="_blank">ROAR database</a>.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading"><a href="https://cci-dev.org/shiny/open/listing-workplan/" target="_blank">FWS Listing Workplan</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">FWS's 7-year workplan</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('workpl', 'cd10')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="cd10">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="workpl" style="display:none">
+                      <p class='more-info'>FWS released their seven-year workplan for evaluating &gt;350 species for listing under the ESA. We extracted the data from their PDF to make it more accessible and useable.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading"><a href="https://cci-dev.org/shiny/open/fiveyr_review/" target="_blank">ESA 5-year Reviews</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">Timeliness of 5-yr reviews</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('fiveyr', 'cd11')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="cd11">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="fiveyr" style="display:none">
+                      <p class='more-info'>The US Endangered Species Act requires a review of the status of listed species once every five years. This is a simple tool to view the timeliness of five-year reviews as of early 2017.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" id="analyses">
+          <div class="col-md-12">
+            <div class="plain-panel">
+              <div class="panel-body">
+                <h4 style="font-weight:bold;">Analyses</h4>
+                <p>An occasional series of short analyses that inform conservation efforts on a wide array of topics.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel panel-success">
+              <div class="panel-heading"><a href="https://cci-dev.org/analysis/ESA_funding/" target="_blank" class="success">ESA Funding</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">Needs and appropriations</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('fundan', 'an1')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="an1">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="fundan" style="display:none">
+                    <p class='more-info'>An analysis of the funding needs for threatened and endangered species versus appropriations and spending.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-success">
+              <div class="panel-heading"><a href="https://cci-dev.org/analysis/section7_take/" target="_blank" class="success">Section 7 Take</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">ESA-authorized harm</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('s7takean', 'an2')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="an2">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="s7takean" style="display:none">
+                    <p class='more-info'>An analysis of data on "take" (i.e., harm) authorized during 7 consultation by . The data were collected by  as part of their consultation program.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" id="working_papers">
+          <div class="col-md-12">
+            <div class="plain-panel">
+              <div class="panel-body">
+                <h4>Working Papers</h4>
+                <p>An occasional series of short "papers" discussing our ongong work (and hence differentiated from <a href="#analysis">Analyses</a>).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel panel-info">
+              <div class="panel-heading"><a href="https://cci-dev.org/working_papers/coordinates.html" target="_blank" class="info">Section 7 Coordinates</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead" style="font-size: 0.95em">Where coordinates are recorded</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('s7coord', 'wp1')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="wp1">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="s7coord" style="display:none">
+                      <p class='more-info'>The US Fish and Wildlife Service has only recorded geographic coordinates for ~1/2 of section 7 consultations since 2008. Here we examine the factors for predicting which consultations have coordinates recorded.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-info">
+              <div class="panel-heading"><a href="https://cci-dev.org/working_papers/recovery_actions_take_1.html" target="_blank" class="info">Recovery Actions (v1)</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">Recovery actions analysis</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('roaran', 'wp2')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="wp2">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="roaran" style="display:none">
+                      <p class='more-info'>A brief overview of the FWS and NMFS recovery action database, ROAR. Presented in a <a href="https://rmarkdown.rstudio.com/flexdashboard/" target="_blank" style="font-weight: 600">flex dashboard</a> to test the format.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-info">
+              <div class="panel-heading"><a href="https://cci-dev.org/working_papers/recovery_actions_take_2.html" target="_blank" class="info">Recovery Actions (v2)</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">Recovery actions analysis</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('roaran2', 'wp3')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="wp3">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="roaran2" style="display: none">
+                      <p class='more-info'>A brief overview of the FWS and NMFS recovery action database, roar. Presented with <a href="http://rmarkdown.rstudio.com/tufte_handout_format.html" target="_blank" style="font-weight: 600">Tufte theme</a> to test the format.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel panel-info">
+              <div class="panel-heading"><a href="https://cci-dev.org/working_papers/section7_take.html" target="_blank" class="info">Section 7 Take</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">ESA-authorized harm</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('s7take2', 'wp4')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="wp4">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="s7take2" style="display:none">
+                      <p class='more-info'>A brief overview of authorized 'take' (i.e., harm) statements recorded in FWS's section 7 database; uses a <a href="https://rmarkdown.rstudio.com/flexdashboard/" target="_blank" style="font-weight: 600">flexdashboard</a> format.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-info">
+              <div class="panel-heading"><a href="https://cci-dev.org/working_papers/agreements_overview.html" target="_blank" class="info">Section 10 Agreements (v1)</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead" style="font-size: 0.95em">Non-federal conservation agmts</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('s10v1', 'wp5')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="wp5">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="s10v1" style="display:none">
+                      <p class='more-info'>A brief overview of agreements made under section 10(a)(1)(B) of the ESA.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-info">
+              <div class="panel-heading"><a href="https://cci-dev.org/shiny/open/section10_flex/" target="_blank" class="info">Section 10 Agreements (v2)</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead" style="font-size: 0.95em">Non-federal conservation agmts</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('s10v2', 'wp6')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="wp6">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="s10v2" style="display:none">
+                      <p class='more-info'>An alternative analysis of agreements made under section 10(a)(1)(B) of the ESA.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel panel-info">
+              <div class="panel-heading"><a href="https://cci-dev.org/shiny/open/CH_changes_overview_v0-1.htm" target="_blank" class="info">Critical Habitat Changes</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">Critical habitat 2001-2011</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('chchange', 'wp7')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="wp7">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="chchange" style="display:none">
+                      <p class='more-info'>An initial examination of how habitat types changed in designated critical habitat for 42 species, 2001-2011.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-info">
+              <div class="panel-heading"><a href="https://cci-dev.org/working_papers/recovery_plan_analysis.html" target="_blank" class="info">Recovery Plan Times</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">Recovery plan timeliness</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('recplantime', 'wp8')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="wp8">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="recplantime" style="display:none">
+                      <p class='more-info'>An overview of how many species have recovery plans, how long planning took, and the age of current plans.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" id="microapps">
+          <div class="col-md-12">
+            <div class="plain-panel">
+              <div class="panel-body">
+                <h4>Shiny Microapps</h4>
+                <p>A set of small Shiny apps that provide a single, focused service, to be used as embeds (iframes) in non-Shiny webpages/sites.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel panel-warning">
+              <div class="panel-heading"><a href="https://cci-dev.org/shiny/microapps/sec7_comp/" target="_blank" class="warning">Section 7 Microapp</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">Section 7 summary figures</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('s7mu', 'mu1')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="mu1">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="s7mu" style="display:none">
+                      <p class='more-info'>Three basic bargraphs of section 7 data, with a link to the Section 7 Explorer app. Species selection is specified as a query string in the URL.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-warning">
+              <div class="panel-heading"><a href="https://cci-dev.org/shiny/microapps/gbif_map_comp/" target="_blank" class="warning">GBIF Map Microapp</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">Global Biodiv. Info. Facility</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('gbifmu', 'mu2')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="mu2">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="gbifmu" style="display:none">
+                      <p class='more-info'>A very basic Leaflet map with occurrence records from GBIF. Species selection is specified as a query string in the URL.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-warning">
+              <div class="panel-heading"><a href="https://cci-dev.org/shiny/microapps/threats_demo/" target="_blank" class="warning">Threats & Demography</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">Status score display</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('tdmu', 'mu3')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="mu3">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="tdmu" style="display:none">
+                      <p class='more-info'>A microapp illustrating how threat status and demographic status of imperiled species could be displayed.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel panel-warning">
+              <div class="panel-heading"><a href="https://cci-dev.org/shiny/microapps/threats_relative/" target="_blank" class="warning">Threats Relative Importance</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead" style="font-size: 0.95em">Record and display threats</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('thr-mu', 'mu4')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="mu4">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="thr-mu" style="display:none">
+                      <p class='more-info'>A microapp illustrating how the relative importance of threats could be gathered (e.g., through expert elicitation) and displayed.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-warning">
+              <div class="panel-heading"><a href="https://cci-dev.org/shiny/microapps/ROAR_table/" target="_blank" class="warning">Recovery Action Table</a></div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead" style="font-size: 0.95em">ROAR recovery action table</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('roar-mu', 'mu5')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="mu5">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="roar-mu" style="display:none">
+                      <p class='more-info'>A microapp displaying a table of recover actions from FWS's ROAR. Species selection is specified as a query string in the URL.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" id="annotations">
+          <div class="col-md-12">
+            <div class="plain-panel">
+              <div class="panel-body">
+                <h4 style="font-weight:bold;">ESA Policy Annotations</h4>
+                <p>A section for group annotations of proposed ESA policies using <a href="https://hypothes.is" target="_blank" style="font-weight: 600">Hypothes.is</a>. At the moment, annotations require using the <a href="https://chrome.google.com/webstore/detail/bjfhmglciegochdpefhhlphglcehbmek" target="_blank" style="font-weight: 600">Chrome plugin for Hypothes.is.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel panel-danger" data-toggle="tooltip" data-placement="top" title="Restricted">
+              <div class="panel-heading">
+                <a href="https://cci-dev.org/shiny/closed/pdfs/HCP_handbook_rev.pdf" target="_blank" class="danger">HCP Handbook Revisions</a>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-9">
+                    <p class="subhead">Proposed HCP handbook</p>
+                  </div>
+                  <div class="col-md-3">
+                    <button onclick="myToggle('hcp-anno', 'ann1')" style="float:right; font-size: small; background-color: #fff; border: 0 solid #fff" id="ann1">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="hcp-anno" style="display:none">
+                      <p class='more-info'>FWS and NMFS have drafted an update to their HCP handbook. This copy of the draft revised handbook is set up for annotation.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr style="border-top: 3px double #8c8b8b;"> 
+        <div class="foot">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"> <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a> 
+          <br><br> 
+          <p>This <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" rel="dct:type">work</span> by <a xmlns:cc="http://creativecommons.org/ns" href="http://www.defenders.org" property="cc:attributionName" rel="cc:attributionURL" target="_blank">Defenders of Wildlife</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <script type="text/javascript" src="www/jquery-2.2.4.min.js"></script>
+      <script type="text/javascript" src="www/bootstrap/js/bootstrap.min.js"></script>
+      <link href="www/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+      <script type="text/javascript" src="www/bootstrap/js/bootstrap.js"></script>
+      <link href="www/cci_boot.css" rel="stylesheet"/>
+      <script>
+        $(document).ready(function() {
+          $(".dropdown-toggle").dropdown();
+        });
+      </script>
+      <script>
+        $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+        })
+      </script>
+    </div>
+  </body>
+</html>
